@@ -1,0 +1,10 @@
+# Flutter 官方推荐 lint 规则集
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # 可按需追加项目级 lint 规则

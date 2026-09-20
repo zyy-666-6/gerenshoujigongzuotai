@@ -1,0 +1,55 @@
+name: personal_workbench
+description: 个人工作台 Android APP —— 笔记 / 图片 / 语音 / 文档的本地管理工具（纯本地、无服务器）
+publish_to: 'none' # 个人项目，不发布到 pub.dev
+version: 1.1.0+2
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+# ---------------------------------------------------------------------------
+# 依赖说明（对应实现文档 §3 技术选型）：
+#  - provider            轻量状态管理
+#  - sqflite             SQLite 本地数据库（笔记/索引/分类）
+#  - path / path_provider 路径拼接 与 App 私有目录获取
+#  - image_picker        系统相册选择图片（无需存储权限）
+#  - file_picker         系统文件选择器（SAF，选文档/图片文件）
+#  - record              麦克风录音（m4a/aac，支持暂停继续）
+#  - just_audio          语音播放（播放/暂停/进度）
+#  - pdfrx               PDF App 内预览（2.x：适配 Dart 3.13+，1.x 在新版 SDK 下无法编译）
+#  - open_filex          调用系统兼容应用打开 Office 等文档
+#  - permission_handler  权限申请引导（麦克风 + 跳系统设置）
+#  - uuid                导入文件重命名为 uuid，避免重名冲突
+#  - intl                日期/时间格式化
+# ---------------------------------------------------------------------------
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  image_picker: ^1.1.2
+  file_picker: ^13.1.0
+  record: ^7.1.0
+  just_audio: ^0.10.6
+  pdfrx: ^2.6.1
+  open_filex: ^4.5.0
+  permission_handler: ^13.0.2
+  uuid: ^4.4.0
+  intl: ^0.20.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "app_icon.jpg"
